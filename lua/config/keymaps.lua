@@ -22,16 +22,29 @@ end
 local function i(lhs, rhs, options)
   map("i", lhs, rhs, options)
 end
+local function stop_debug()
+  require("dapui").close()
+  require("dap").terminate()
+end
 
 n("<F5>", "<cmd>DapContinue<cr>", { desc = "Debugger: Start" })
+n("<leader>dc", "<cmd>DapContinue<cr>", { desc = "Debugger: Start" })
 n("<F17>", "<cmd>DapTerminate<cr>", { desc = "Debugger: Stop" })
+n("<leader>dT", stop_debug, { desc = "Debugger: Stop" })
 n(
   "<F9>",
   "<cmd>lua require('persistent-breakpoints.api').toggle_breakpoint()<cr>",
   { desc = "Debugger: Toggle Breakpoint" }
 )
+n(
+  "<leader>db",
+  "<cmd>lua require('persistent-breakpoints.api').toggle_breakpoint()<cr>",
+  { desc = "Debugger: Toggle Breakpoint" }
+)
 n("<F10>", "<cmd>DapStepOver<cr>", { desc = "Debugger: Step Over" })
-n("<F11>", "<cmd>DapStepOver<cr>", { desc = "Debugger: Step In" })
+n("<leader>do", "<cmd>DapStepOver<cr>", { desc = "Debugger: Step Over" })
+n("<F11>", "<cmd>DapStepIn<cr>", { desc = "Debugger: Step In" })
+n("<leader>di", "<cmd>DapStepIn<cr>", { desc = "Debugger: Step In" })
 
 n("<leader>cR", function()
   require("telescope.builtin").lsp_references()
@@ -42,7 +55,7 @@ end, { desc = "Definitions" })
 n("<leader>ci", function()
   require("telescope.builtin").lsp_implementations()
 end, { desc = "Implementation" })
-n("<leader>db", function()
+n("<leader>dB", function()
   require("telescope").extensions.dap.list_breakpoints({})
 end, { desc = "List Breakpoints" })
 n("<leader>df", function()
