@@ -50,6 +50,6 @@ n("<leader>df", function()
 end, { desc = "List Frames" })
 
 n("<leader>tf", "<cmd>ToggleTerm direction=float<cr>", { desc = "ToggleTerm float" })
-n("<leader>th", "<cmd>ToggleTerm direction=float<cr>", { desc = "ToggleTerm horizontal split" })
+n("<leader>th", "<cmd>ToggleTerm direction=horizontal<cr>", { desc = "ToggleTerm horizontal split" })
 n("<leader>tv", "<cmd>ToggleTerm size=80 direction=vertical<cr>", { desc = "ToggleTerm vertical split" })
 n("<F7>", "<cmd>ToggleTerm<cr>", { desc = "Toggle Terminal" })
