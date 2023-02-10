@@ -35,11 +35,26 @@ wk.register({
     c = { "<cmd>Lspsaga code_action<CR>", "Code Action saga" },
     s = { "<cmd>Lspsaga outline<CR>", "Symbols Outline" },
     p = { "<cmd>Lspsaga peek_definition<CR>", "Peek Definition" },
+    h = { "<cmd>Lspsaga hover_doc<CR>", "Hover Doc" },
+    I = { "<cmd>Lspsaga incoming_calls<CR>", "Incoming Calls" },
+    O = { "<cmd>Lspsaga outcoming_calls<CR>", "Outcoming Calls" },
     D = {
       function()
         require("telescope.builtin").lsp_definitions()
       end,
       "Go to Definition",
+    },
+    R = {
+      function()
+        require("telescope.builtin").lsp_references()
+      end,
+      "References",
+    },
+    i = {
+      function()
+        require("telescope.builtin").lsp_implementations()
+      end,
+      "Implementation",
     },
   },
   d = {
@@ -49,6 +64,18 @@ wk.register({
     i = { "<cmd>DapStepIn<cr>", "Step In" },
     b = { "<cmd>lua require('persistent-breakpoints.api').toggle_breakpoint()<cr>", "Toggle Breakpoint" },
     T = { stop_debug, "Stop" },
+    F = {
+      function()
+        require("telescope").extensions.dap.frames({})
+      end,
+      "List Frames",
+    },
+    B = {
+      function()
+        require("telescope").extensions.dap.list_breakpoints({})
+      end,
+      "List Breakpoints",
+    },
   },
   t = {
     name = "Terminal",
@@ -64,9 +91,14 @@ wk.register({
     S = { "<cmd>lua require('neotest').run.stop()<cr>", "Stop Nearest" },
     a = { "<cmd>lua require('neotest').run.attach()<cr>", "Attach Nearest" },
   },
+  n = {
+    name = "Naviage",
+    w = { "<cmd>HopWord<cr>", "Hop Word" },
+  },
 }, {
   prefix = "<leader>",
 })
+
 n("<F5>", "<cmd>DapContinue<cr>", { desc = "Debugger: Start" })
 n("<F17>", "<cmd>DapTerminate<cr>", { desc = "Debugger: Stop" })
 n(
@@ -77,17 +109,6 @@ n(
 n("<F10>", "<cmd>DapStepOver<cr>", { desc = "Debugger: Step Over" })
 n("<F11>", "<cmd>DapStepIn<cr>", { desc = "Debugger: Step In" })
 
-n("<leader>cR", function()
-  require("telescope.builtin").lsp_references()
-end, { desc = "References" })
-n("<leader>ci", function()
-  require("telescope.builtin").lsp_implementations()
-end, { desc = "Implementation" })
-n("<leader>dB", function()
-  require("telescope").extensions.dap.list_breakpoints({})
-end, { desc = "List Breakpoints" })
-n("<leader>df", function()
-  require("telescope").extensions.dap.frames({})
-end, { desc = "List Frames" })
-
 n("<F7>", "<cmd>ToggleTerm<cr>", { desc = "Toggle Terminal" })
+n("f", "<cmd>HopChar1AC<cr>", { desc = "Hop Forward" })
+n("F", "<cmd>HopChar1BC<cr>", { desc = "Hop Backward" })
