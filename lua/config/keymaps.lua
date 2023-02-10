@@ -30,6 +30,18 @@ end
 local wk = require("which-key")
 
 wk.register({
+  c = {
+    name = "Code",
+    c = { "<cmd>Lspsaga code_action<CR>", "Code Action saga" },
+    s = { "<cmd>Lspsaga outline<CR>", "Symbols Outline" },
+    p = { "<cmd>Lspsaga peek_definition<CR>", "Peek Definition" },
+    D = {
+      function()
+        require("telescope.builtin").lsp_definitions()
+      end,
+      "Go to Definition",
+    },
+  },
   d = {
     name = "Debug",
     c = { "<cmd>DapContinue<cr>", "Start/Continue" },
@@ -68,9 +80,6 @@ n("<F11>", "<cmd>DapStepIn<cr>", { desc = "Debugger: Step In" })
 n("<leader>cR", function()
   require("telescope.builtin").lsp_references()
 end, { desc = "References" })
-n("<leader>cD", function()
-  require("telescope.builtin").lsp_definitions()
-end, { desc = "Definitions" })
 n("<leader>ci", function()
   require("telescope.builtin").lsp_implementations()
 end, { desc = "Implementation" })
