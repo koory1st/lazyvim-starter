@@ -23,3 +23,5 @@ for _, sign in ipairs(signs) do
   end
   vim.fn.sign_define(sign.name, sign)
 end
+
+vim.o.relativenumber = false
