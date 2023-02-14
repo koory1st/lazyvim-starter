@@ -92,12 +92,15 @@ wk.register({
     a = { "<cmd>lua require('neotest').run.attach()<cr>", "Attach Nearest" },
   },
   n = {
-    name = "Naviage",
+    name = "Navigate",
     w = { "<cmd>HopWord<cr>", "Hop Word" },
   },
 }, {
   prefix = "<leader>",
 })
+
+i("<A-;>", "<esc>A;<esc>", { desc = "Append semic" })
+i("<D-;>", "<esc>A;<esc>", { desc = "Append semic" })
 
 n("<F5>", "<cmd>DapContinue<cr>", { desc = "Debugger: Start" })
 n("<F17>", "<cmd>DapTerminate<cr>", { desc = "Debugger: Stop" })
