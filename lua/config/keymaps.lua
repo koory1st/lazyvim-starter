@@ -90,6 +90,7 @@ wk.register({
     d = { "<cmd>lua require('neotest').run.run({strategy = 'dap'})<cr>", "Debug Nearest" },
     S = { "<cmd>lua require('neotest').run.stop()<cr>", "Stop Nearest" },
     a = { "<cmd>lua require('neotest').run.attach()<cr>", "Attach Nearest" },
+    o = { "<cmd>lua require('neotest').output_panel.toggle()<cr>", "Output Panel Toggle" },
   },
   n = {
     name = "Navigate",
