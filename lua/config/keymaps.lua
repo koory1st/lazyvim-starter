@@ -95,6 +95,8 @@ wk.register({
   n = {
     name = "Navigate",
     w = { "<cmd>HopWord<cr>", "Hop Word" },
+    f = { "<cmd>HopChar1AC<cr>", "Hop Forward" },
+    b = { "<cmd>HopChar1BC<cr>", "Hop Backward" },
   },
 }, {
   prefix = "<leader>",
@@ -114,5 +116,5 @@ n("<F10>", "<cmd>DapStepOver<cr>", { desc = "Debugger: Step Over" })
 n("<F11>", "<cmd>DapStepIn<cr>", { desc = "Debugger: Step In" })
 
 n("<F7>", "<cmd>ToggleTerm<cr>", { desc = "Toggle Terminal" })
-n("f", "<cmd>HopChar1AC<cr>", { desc = "Hop Forward" })
-n("F", "<cmd>HopChar1BC<cr>", { desc = "Hop Backward" })
+n("f", "<cmd>HopChar1CurrentLineAC<cr>", { desc = "Hop Forward" })
+n("F", "<cmd>HopChar1CurrentLineBC<cr>", { desc = "Hop Backward" })
