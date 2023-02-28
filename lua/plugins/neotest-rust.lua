@@ -1,3 +1,4 @@
 return {
-  'rouge8/neotest-rust'
+  "koory1st/neotest-rust",
+  branch = "feature/dap-support",
 }
