@@ -1,4 +1,4 @@
 return {
-  "ggandor/leap.nvim",
+  "ggandor/flit.nvim",
   enabled = false,
 }
