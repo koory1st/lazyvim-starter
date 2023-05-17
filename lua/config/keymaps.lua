@@ -98,6 +98,10 @@ wk.register({
     f = { "<cmd>HopChar1AC<cr>", "Hop Forward" },
     b = { "<cmd>HopChar1BC<cr>", "Hop Backward" },
   },
+  u = {
+    name = "ui",
+    p = { "<cmd>NoNeckPain<cr>", "NoNeckPain Toggle" },
+  },
 }, {
   prefix = "<leader>",
 })
